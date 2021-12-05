@@ -1,7 +1,7 @@
 # unlock-windows-drive
-If you're reading a hard drive from a separate windows system, you might run into file ownership conflicts.  This script resolves this by setting the ownership of the drive contents to "Everyone"
+#If you're reading a hard drive from a separate windows system, you might run into file ownership conflicts.  This script resolves this by setting the ownership of the drive contents to "Everyone"
 
-#Directories
+#Unlock Directories
 #P/Invoke'd C# code to enable required privileges to take ownership and make changes when NTFS permissions are lacking
 $AdjustTokenPrivileges = @"
 using System;
@@ -93,7 +93,7 @@ $NewOwnerACL.SetOwner($Admin)
 $Folder.SetAccessControl($NewOwnerACL)
 }
 
-#Files
+#Unlock Files
 Get-ChildItem -Path "./*.*" -Recurse | ForEach-Object {
     icacls.exe $_.FullName /setowner everyone
     icacls.exe $_.FullName /grant 'everyone:rw'
