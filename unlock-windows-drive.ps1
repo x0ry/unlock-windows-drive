@@ -1,5 +1,8 @@
-# unlock-windows-drive
-#If you're reading a hard drive from a separate windows system, you might run into file ownership conflicts.  This script resolves this by setting the ownership of the drive contents to "Everyone"
+# Powershell script
+#-----------------------------
+# unlock-windows-drive.ps1
+# If you're reading a hard drive from a separate windows system, you might run into file ownership conflicts.
+# This script resolves this by setting the ownership of the drive contents to "Everyone"
 
 #Unlock Directories
 #P/Invoke'd C# code to enable required privileges to take ownership and make changes when NTFS permissions are lacking
